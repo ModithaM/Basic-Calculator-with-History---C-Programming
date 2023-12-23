@@ -94,13 +94,21 @@ void multiplication(float n1)  //multiplication function
 void devide(float n1) //devide function
 {
    float n2;
-   FILE*fptr;  
-   fptr = fopen("calHistory.txt" , "a"); //Open File
    printf("\nEnter No 2 : ");
    scanf("%f",&n2);
-   printf("\n%.2f / %.2f Equal To %.2f\n\n",n1,n2,n1/n2);
-   fprintf(fptr , "\n%.2f / %.2f Equal To %.2f\n\n",n1,n2,n1/n2); //write to file
-   fclose(fptr); //Close File
+
+   if (n2==0)
+   {
+      printf("\nCan,t devide by 0\n\n");
+   }
+   else
+   {
+      FILE*fptr;  
+      fptr = fopen("calHistory.txt" , "a"); //Open File
+      printf("\n%.2f / %.2f Equal To %.2f\n\n",n1,n2,n1/n2);
+      fprintf(fptr , "\n%.2f / %.2f Equal To %.2f\n\n",n1,n2,n1/n2); //write to file
+      fclose(fptr); //Close File
+   }
 }
 
 void sqroot(float n1)  //square rooot function
